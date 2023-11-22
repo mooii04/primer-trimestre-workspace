@@ -1,0 +1,39 @@
+package ejercicio08;
+
+import utilidades.Leer;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		double dineroCuenta;
+		String nombreTitular;
+		double dineroAniadido;
+		double dineroSolicitado;
+		int opcionSistema;
+		
+		
+		System.out.println("Bienvenido al cajero VVBO");
+		System.out.println("/////////////////////////////");
+		
+		System.out.println("Antes de adentrarnos en el sistema, ¿cuánto dinero tiene en la cuenta?");
+		dineroCuenta = Leer.datoDouble();
+		System.out.println("/////////////////////////////");
+		
+		System.out.println("Para adentrarnos dentro en el sistema y realizar varias operaciones por favor pulse 1"
+				+ "Si solo va hacer una operación pulse cualquier otro número");
+		opcionSistema = Leer.datoInt();
+		System.out.println("/////////////////////////////");
+		
+		do {
+			System.out.println("Bienvenido al sistema BBVO");
+			System.out.println("Si desea ingresar dinero PULSE 1");
+			System.out.println("Si desea retirar dinero PULSE 2");
+			System.out.println("Si desea consultar su dinero en $ PULSE 3");
+			
+			
+		}while (opcionSistema == 1);
+	}
+
+}

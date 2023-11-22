@@ -1,0 +1,57 @@
+package ejercicio08;
+
+public class Banco {
+
+	private double dineroCuenta;
+	private double dineroDolares;
+	
+	
+	
+	public boolean poderRetirarDinero (double dineroSolicitado){
+		
+		boolean factor;
+		
+		if (dineroSolicitado <= dineroCuenta) {
+			dineroCuenta = dineroCuenta - dineroSolicitado;
+			factor = true;
+		}
+		else {
+			factor = false;			
+		}
+		
+		return factor;
+	}
+	
+	public double retirarDinero (double dineroSolicitado) {
+		
+		boolean factor; 
+		
+		factor = poderRetirarDinero(dineroSolicitado);
+		
+		if (factor == true) {
+			System.out.println("Al retirar dinero de la cuenta se queda con unn saldo de: "+dineroCuenta);
+		}
+		else {
+			System.out.println("Imposible poder retirar esa cantidad, debido a que es mayor que el saldo"
+					+ "actual");
+		}
+		
+		return dineroCuenta;
+	}
+	
+	public double calcularEnDolares () {
+		
+		double unEuroEnDolares = 1.09;
+		
+		dineroDolares = dineroCuenta * unEuroEnDolares;
+		
+		return dineroDolares;
+	}
+	
+	public double consultarSaldo () {
+		
+		return dineroCuenta;
+		
+	}
+	
+}

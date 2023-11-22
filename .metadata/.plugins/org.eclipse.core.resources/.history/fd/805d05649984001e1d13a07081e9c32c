@@ -1,0 +1,10 @@
+package ejercicio08;
+
+public class Banco {
+
+	private double dineroCuenta;
+	private String nombreTitular;
+	
+	
+	
+}
