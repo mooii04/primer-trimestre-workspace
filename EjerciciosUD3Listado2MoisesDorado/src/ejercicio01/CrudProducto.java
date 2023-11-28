@@ -30,5 +30,11 @@ public class CrudProducto {
 			}
 		}
 	
+	//Pasamos un producto y una posición y se añade ese producto a esa posición
+	//Lo que haya dentro de esa posición si se cambia se pierde
+	public void add(Producto p, int posicion) {
+		lista[posicion]=p;
+	}
+	
 	
 }

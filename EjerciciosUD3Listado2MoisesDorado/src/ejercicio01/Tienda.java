@@ -23,14 +23,20 @@ public class Tienda {
 		return "Tienda [lista=" + Arrays.toString(lista) + "]";
 	}	
 	
-	public double calcularPrecioCoste (double precioCoste, double precioFabrica, double porcentajeTransporte) {
+		
+	public double calcularPVP (double precioCoste, double PVP, double precioFabrica, double porcentajeTransporte) {
 		precioCoste = precioFabrica + precioFabrica*porcentajeTransporte;
+		return precioCoste + precioCoste*PVP;
+	}
 	
+	public double calcularCosteMenosFabrica (double precioCoste, double precioFabrica, double porcentajeTransporte) {
+		precioCoste = precioFabrica + precioFabrica*porcentajeTransporte;
 		return precioCoste;
 	}
 	
-	public double calcularPVP (double precioCoste, double PVP) {
-		return precioCoste + precioCoste*PVP;
+	public double calcularPrecioFabrica (double precioFabrica, double precioTotalFabrica) {
+		precioTotalFabrica += precioFabrica;
+		return precioTotalFabrica;
 	}
 	
 }
