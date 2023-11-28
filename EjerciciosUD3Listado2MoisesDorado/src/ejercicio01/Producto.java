@@ -3,14 +3,12 @@ package ejercicio01;
 public class Producto {
 
 	private double precioFabrica;
-	private double precioCoste;
 	private double porcentajeTransporte;
 	private boolean fragil;
 	private double PVP;
 	
-	public Producto(double precioFabrica, double precioCoste, double porcentajeTransporte, boolean fragil, double PVP) {
+	public Producto(double precioFabrica, double porcentajeTransporte, boolean fragil, double PVP) {
 		this.precioFabrica = precioFabrica;
-		this.precioCoste = precioCoste;
 		this.porcentajeTransporte = porcentajeTransporte;
 		this.fragil = fragil;
 		this.PVP = PVP;
@@ -22,14 +20,6 @@ public class Producto {
 
 	public void setPrecioFabrica(double precioFabrica) {
 		this.precioFabrica = precioFabrica;
-	}
-
-	public double getPrecioCoste() {
-		return precioCoste;
-	}
-
-	public void setPrecioCoste(double precioCoste) {
-		this.precioCoste = precioCoste;
 	}
 
 	public double getPorcentajeTransporte() {
@@ -58,7 +48,7 @@ public class Producto {
 
 	@Override
 	public String toString() {
-		return "Producto [precioFabrica=" + precioFabrica + ", precioCoste=" + precioCoste + ", porcentajeTransporte="
+		return "Producto [precioFabrica=" + precioFabrica + ", porcentajeTransporte="
 				+ porcentajeTransporte + ", fragil=" + fragil + ", PVP=" + PVP + "]";
 	}
 	
