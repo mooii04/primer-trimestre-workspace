@@ -27,9 +27,16 @@ public class Hotel {
 		lista[posicion]=hab;
 	}
 	
-	public double calcularPrecioHabitacion (String tipoHab, double precioHab) {
+	public void imprimirTodosLasHabitaciones () {
+		for(int i=0; i<lista.length;i++) {
+			System.out.println((i+1)+". "+lista[i]);
+		}
+	}
+	
+	public double calcularPrecioTipo (String tipoHab, double precioHab) {
 		
 		if (tipoHab == "Individual") {
+			precioHab = 50;
 		}
 		if (tipoHab == "Doble") {
 			precioHab = 40;
@@ -40,11 +47,9 @@ public class Hotel {
 		return precioHab;
 	}
 	
-	public double calcularTotalDiasPrecio (double precioHab, double numDiasEstancia, String tipoHab) {
+	public double calcularTotalDiasPrecio (double precioPorTipo, double numDiasEstancia, String tipoHab) {
 		
-		precioHab = calcularPrecioHabitacion(tipoHab, precioHab);
-		
-		return precioHab*numDiasEstancia;
+		return precioPorTipo*numDiasEstancia;
 		
 	}
 	
@@ -70,10 +75,72 @@ public class Hotel {
 		return ocupada;
 	}
 	
-	public String verServiciosExtras (int serviciosExtras, double precioHab, String tipoExtra) {
-		if (serviciosExtras == 1) {
-			
+	public void mostrarOcupacion (boolean ocupada, int leerOcupada) {
+		ocupada = comprobarOcupacion(leerOcupada, ocupada);
+		if (ocupada = true) {
+			System.out.println("La habitación está ocupada, tiene que elegir otra");
 		}
-		return tipoExtra;
+		else {
+			System.out.println("No está ocupada puede cogerla");
+		}
 	}
+	
+	public double calcularPrecioConServicio(double precioPorDias, int serviciosExtra) {
+		if(serviciosExtra == 1) {
+			precioPorDias = precioPorDias+20;
+		}
+		if(serviciosExtra == 2) {
+			precioPorDias = precioPorDias+15;
+		}
+		if(serviciosExtra == 3) {
+			precioPorDias = precioPorDias+30;
+		}
+		if(serviciosExtra == 0) {	
+		}
+		return precioPorDias;
+	}
+	
+	public String ponerNombreServicio(String nombreServicio, int serviciosExtra) {
+		if(serviciosExtra==1) {
+			nombreServicio="Minibar";
+		}
+		if(serviciosExtra==2) {
+			nombreServicio="Desayuno";
+		}
+		if(serviciosExtra==3) {
+			nombreServicio="Limpieza";
+		}
+		if(serviciosExtra==0) {
+			nombreServicio="Ninguno";
+		}
+		return nombreServicio;
+	}
+	
+	public String establecerPrecioServicio(String precioServicio, int serviciosExtra) {
+		if(serviciosExtra==1) {
+			precioServicio="30€";
+		}
+		if(serviciosExtra==2) {
+			precioServicio="20€";
+		}
+		if(serviciosExtra==3) {
+			precioServicio="15€";
+		}
+		if(serviciosExtra==0) {
+			precioServicio="0€";
+		}
+		return precioServicio;
+	}
+	
+	public void mostrarFactura(String nombreCliente, String tipoHab, double precioHab, int numDiasEstancia, String nombreServicio, String precioServicio, double precioPorDias) {
+		System.out.println("*********************************");
+		System.out.println("Nombre del cliente: "+nombreCliente);
+		System.out.println("Tipo de habitación: "+tipoHab+" ("+precioHab+"€)");
+		System.out.println("Dias contratados: "+numDiasEstancia);
+		System.out.println("Servicios extra contratados: "+nombreServicio+"("+precioServicio+")");
+		System.out.println("-----------------------------------------");
+		System.out.println("Precio final: "+precioPorDias);
+		
+}
+	
 }
