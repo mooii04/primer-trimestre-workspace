@@ -14,7 +14,7 @@ public class Principal {
 		String nombreServicio="";
 		double precioHab=50;
 		String nombreCliente="";
-		double numDiasEstancia=0;
+		int numDiasEstancia=0;
 		boolean limpia=false;
 		int leerLimpia=0;
 		String tipoHab="";
@@ -46,12 +46,9 @@ public class Principal {
 			
 				case 1:
 					
-					
 					System.out.println("Nombre del cliente");
 					nombreCliente = Leer.dato();
-					
-					System.out.println("Elija posición para guardar los datos de la habitación");
-					posicion = Leer.datoInt();
+				
 					
 					System.out.println("Diga el tipo de habitación que quiere"
 							+ "\n\nIndividual\t (50€)"
@@ -88,9 +85,9 @@ public class Principal {
 							+ "\n(1) Ocupada"
 							+ "\n(2) Vacía");
 					leerOcupada = Leer.datoInt();
-					ocupada = h.comprobarOcupacion(leerOcupada, ocupada);
+					ocupada = h.comprobarOcupacion(leerOcupada, ocupada, hab);
 					
-					hab = new Habitacion (numDiasEstancia, nombreCliente, serviciosExtras, limpia, tipoHab, ocupada, serviciosExtras);
+					hab = new Habitacion (precioHab, nombreCliente, numDiasEstancia, limpia, tipoHab, ocupada, serviciosExtras);
 			
 					h.add(hab, posicion);
 					posicion++;
@@ -102,9 +99,9 @@ public class Principal {
 					h.add(new Habitacion(numDiasEstancia, nombreCliente, serviciosExtras, limpia, tipoHab, ocupada, posicion), contador);
 					h.imprimirTodosLasHabitaciones();
 					System.out.println("Ahora diga posición para comprobar");
-					posicion = Leer.datoInt();
-					h.comprobarOcupacion(leerOcupada, ocupada);
-					h.mostrarOcupacion(ocupada, leerOcupada);
+					posicion = Leer.datoInt()-1;
+					h.comprobarOcupacion(opcion, ocupada, hab);
+					h.mostrarOcupacion(ocupada, opcion, hab);
 				break;
 				
 				case 3:

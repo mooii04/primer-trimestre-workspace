@@ -29,7 +29,7 @@ public class Hotel {
 	
 	public void imprimirTodosLasHabitaciones () {
 		for(int i=0; i<lista.length;i++) {
-			System.out.println((i+1)+". "+lista[i]);
+			System.out.println((i)+". "+lista[i]);
 		}
 	}
 	
@@ -64,9 +64,9 @@ public class Hotel {
 		return limpia;
 	}
 	
-	public boolean comprobarOcupacion (int leerOcupada, boolean ocupada) {
+	public boolean comprobarOcupacion (int leerOcupada, boolean ocupada, Habitacion hab) {
 		
-		if (leerOcupada == 1) {
+		if (hab.isOcupada()) {
 			ocupada = true;
 		}
 		else {
@@ -75,9 +75,9 @@ public class Hotel {
 		return ocupada;
 	}
 	
-	public void mostrarOcupacion (boolean ocupada, int leerOcupada) {
-		ocupada = comprobarOcupacion(leerOcupada, ocupada);
-		if (ocupada = true) {
+	public void mostrarOcupacion (boolean ocupada, int leerOcupada, Habitacion hab) {
+		
+		if (hab.isOcupada()) {
 			System.out.println("La habitación está ocupada, tiene que elegir otra");
 		}
 		else {
